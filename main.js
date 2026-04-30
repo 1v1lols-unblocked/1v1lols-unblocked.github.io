@@ -83,6 +83,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Back to Top functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTop = document.createElement('div');
+    backToTop.id = 'back-to-top';
+    backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
 function toggleFullScreen() {
     const elem = document.getElementById("game-container");
     if (elem.requestFullscreen) {
