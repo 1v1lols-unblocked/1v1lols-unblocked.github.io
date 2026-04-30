@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="redirect.js"></script>
+    <script>
+        if (window.location.pathname !== '/404') {
+            window.location.replace('/404' + window.location.search);
+        }
+    </script>
+    <script src="/redirect.js"></script>
     <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
 
     <meta charset="UTF-8">
@@ -11,7 +16,7 @@
     <link rel="canonical" href="https://1v1lols-unblocked.github.io/404">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="/style.min.css?v=1.4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
@@ -40,9 +45,10 @@
         </div>
     </section>
 
-    <script src="main.min.js" defer></script>
+    <script src="/main.min.js" defer></script>
 </body>
 </html>
+
 
 
 
