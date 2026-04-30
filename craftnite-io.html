@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Craftnite.io turns every match into a survival puzzle where digging, building, and explosive plays decide who controls the battlefield.">
+    <title>Craftnite.io - Voxel Battle Royale & Building Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/craftnite-io">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/craftnite-io">
+    <meta property="og:title" content="Craftnite.io - Voxel Battle Royale & Building Game">
+    <meta property="og:description" content="Craftnite.io turns every match into a survival puzzle where digging, building, and explosive plays decide who controls the battlefield.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/craftnite-io.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/craftnite-io">
+    <meta property="twitter:title" content="Craftnite.io - Voxel Battle Royale & Building Game">
+    <meta property="twitter:description" content="Craftnite.io turns every match into a survival puzzle where digging, building, and explosive plays decide who controls the battlefield.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/craftnite-io.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Craftnite.io - Voxel Battle Royale & Building Game",
+      "url": "https://1v1lols-unblocked.github.io/craftnite-io",
+      "image": "https://1v1lols-unblocked.github.io/assets/craftnite-io.webp",
+      "description": "Craftnite.io turns every match into a survival puzzle where digging, building, and explosive plays decide who controls the battlefield.",
+      "applicationCategory": "GameApplication",
+      "genre": "Voxel Battle Royale",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Craftnite.io</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/craftnite-io.webp" class="preview-img" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://craftnite.io/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Craftnite.io</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>When the Map Becomes the Fight</h2>
+                <p>Craftnite.io is built around one core idea that most shooters ignore. The battlefield is not static. Every wall can be broken, every surface can be reshaped, and every position can disappear in seconds. Because of this, fights are not just about aim or reaction time. They are about how quickly you can change the environment to create advantage.</p>
+                <p>Players who treat the terrain as a tool rather than background consistently gain control over engagements.</p>
+
+                <h2>Two Ways to Dominate the Map</h2>
+                <h3>Vertical Pressure</h3>
+                <ul>
+                    <li>Build ladders to gain fast elevation</li>
+                    <li>Control sightlines from above</li>
+                    <li>Force enemies into predictable movement</li>
+                </ul>
+
+                <h3>Underground Control</h3>
+                <ul>
+                    <li>Dig routes between key areas</li>
+                    <li>Avoid open fights when outnumbered</li>
+                    <li>Create surprise entries behind enemies</li>
+                </ul>
+                <p>Strong players constantly switch between these layers instead of committing to one style.</p>
+
+                <h2>Decision Making Beats Firepower</h2>
+                <p>Weapons in Craftnite.io are powerful, but they only work when combined with positioning. A sniper becomes dangerous only when supported by height or distance, while shotguns are effective only when fights are forced into tight spaces.</p>
+                <p>Winning players do not chase kills blindly. They shape the fight first, then take the shot.</p>
+
+                <h2>Situational Thinking in Combat</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Scenario</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Weak Play</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Smart Play</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Enemy above</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Shoot directly</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Destroy structure below</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Being chased</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Run in open</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Dig and reposition</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Enemy hiding</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Wait</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Force movement with explosives</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Close fight</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Trade damage</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Change terrain to gain edge</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Understanding these decisions creates more consistent results than relying on reflex alone.</p>
+
+                <h2>Hidden Mechanics That Give Real Advantage</h2>
+                <h3>Mole Strategy and Depth Awareness</h3>
+                <p>Digging is more than escape. The map has a hidden depth limit where water begins to deal damage, but experienced players stay just above that layer and create zigzag tunnel systems. These underground paths connect loot zones and escape routes, allowing you to disappear instantly during fights and reappear in unexpected locations without exposing yourself.</p>
+
+                <h3>Dynamite as a Terrain Weapon</h3>
+                <ul>
+                    <li><strong>Structure Break:</strong> Destroy support points instead of attacking players directly</li>
+                    <li><strong>Fall Damage Setup:</strong> Let gravity weaken opponents</li>
+                    <li><strong>Path Control:</strong> Remove escape routes or safe spots</li>
+                    <li><strong>Pressure Tool:</strong> Force enemies to move into open areas</li>
+                </ul>
+                <p>Using dynamite to reshape the battlefield is often more effective than using it for direct damage.</p>
+
+                <h2>Controls You Must Master</h2>
+                <ul>
+                    <li><strong>WASD:</strong> Movement</li>
+                    <li><strong>Space:</strong> Jump</li>
+                    <li><strong>Left click:</strong> Shoot or interact</li>
+                    <li><strong>1 to 5:</strong> Switch items</li>
+                    <li><strong>Tab:</strong> Inventory</li>
+                </ul>
+                <p>Efficiency in switching tools is critical during fast situations.</p>
+
+                <h2>What Keeps Matches Unpredictable</h2>
+                <p>Every action leaves a permanent impact on the environment, which means no two fights play out the same way. A safe position can become exposed within seconds, while a weak position can turn into an advantage with a single well placed structure or explosion. Players who adapt faster than their opponents consistently stay ahead.</p>
+
+                <h2>Explore Similar Gameplay Styles</h2>
+                <p>If you enjoy the creative destruction of Craftnite.io, you should also check out these titles:</p>
+                <ul>
+                    <li><a href="2v2-io">2v2.io</a> focuses on building during combat</li>
+                    <li><a href="bloxd-io">Bloxd.io</a> expands on sandbox interaction and exploration</li>
+                    <li><a href="repuls-io">Repuls.io</a> emphasizes movement and arena control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

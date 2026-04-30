@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Krunker.io is a fast browser FPS with smooth movement, multiple classes, and competitive gunplay where aim, speed, and positioning decide every match.">
+    <title>Krunker - Fast-Paced Legendary Browser FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/krunker">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/krunker">
+    <meta property="og:title" content="Krunker - Fast-Paced Legendary Browser FPS">
+    <meta property="og:description" content="Krunker.io is a fast browser FPS with smooth movement, multiple classes, and competitive gunplay where aim, speed, and positioning decide every match.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/krunker.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/krunker">
+    <meta property="twitter:title" content="Krunker - Fast-Paced Legendary Browser FPS">
+    <meta property="twitter:description" content="Krunker.io is a fast browser FPS with smooth movement, multiple classes, and competitive gunplay where aim, speed, and positioning decide every match.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/krunker.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Krunker - Fast-Paced Legendary Browser FPS",
+      "url": "https://1v1lols-unblocked.github.io/krunker",
+      "image": "https://1v1lols-unblocked.github.io/assets/krunker.webp",
+      "description": "Krunker.io is a fast browser FPS with smooth movement, multiple classes, and competitive gunplay where aim, speed, and positioning decide every match.",
+      "applicationCategory": "GameApplication",
+      "genre": "Legendary Browser FPS",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Krunker</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/krunker.webp" class="preview-img" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://krunker.io" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Krunker</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>Pure Skill FPS Experience</h2>
+                <p>Krunker.io strips away unnecessary complexity and focuses entirely on mechanical skill, fast reactions, and movement mastery. Matches begin instantly, placing players into compact arenas where every second matters and every opponent is a direct threat. There is no reliance on randomness or heavy systems, as success depends on how well you aim, move, and position yourself under pressure.</p>
+                <p>The minimalist visual style is not a limitation but an advantage, allowing clearer visibility and smoother performance across devices, which is critical in a game built around speed.</p>
+
+                <h2>Movement Defines Everything</h2>
+                <h3>Slidehopping Advantage</h3>
+                <p>Movement in Krunker.io goes far beyond basic running, as slidehopping allows players to chain slides and jumps to gain extreme speed while staying difficult to hit. Mastering this technique creates a massive gap between beginners and advanced players because it affects both mobility and survivability.</p>
+
+                <h3>Positioning and Angles</h3>
+                <ul>
+                    <li>Keep distance when using mid range weapons</li>
+                    <li>Control corners to reduce exposure</li>
+                    <li>Use map objects as cover during reloads</li>
+                </ul>
+                <p>Players who combine movement with smart positioning dominate most encounters.</p>
+
+                <h2>Weapons and Classes Breakdown</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Class Type</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Strength</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Playstyle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Triggerman</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Balanced rifle</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Consistent and beginner friendly</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Hunter</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">High damage sniper</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Precision and quick reactions</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Spray N Pray</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">High ammo output</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Aggressive pressure</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Rocketeer</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Explosive damage</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Area control</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Each class changes how you approach fights, making adaptability essential.</p>
+
+                <h2>Map Awareness and Control</h2>
+                <p>Maps in Krunker.io are designed to keep players engaged at all times, with tight layouts, multiple sightlines, and constant spawn rotations that prevent passive gameplay. Learning map flow helps predict enemy movement, secure better angles, and avoid unnecessary risks, while experienced players use vertical movement and timing to control engagements instead of reacting to them.</p>
+
+                <h2>Hidden Systems That Change Performance</h2>
+                <h3>FPS Directly Affects Movement</h3>
+                <p>Krunker.io has a unique engine behavior where movement speed and slide mechanics scale with frame rate. Players running at higher FPS experience faster slide distance and smoother jumps, giving them a real advantage in both mobility and combat. Playing at low frame rates limits your potential regardless of skill, which is why optimizing settings or using the official client can dramatically improve performance.</p>
+
+                <h3>Skin Economy and Market Strategy</h3>
+                <p>The game includes a deep trading system where cosmetic items can reach extremely high values. Some rare skins are no longer obtainable and are traded like assets within the community. Understanding item value before trading is crucial because many new players lose valuable skins due to lack of pricing knowledge. For some players, trading becomes an alternative progression path that does not rely on gameplay skill.</p>
+
+                <h3>Custom Crosshair Advantage</h3>
+                <p>Default crosshairs can reduce visibility during fast movement, so experienced players use custom overlays to maintain precision. By switching to minimal or static crosshair designs, players can improve headshot accuracy and reduce visual distraction, especially during high speed engagements.</p>
+
+                <h2>LOLShot.io vs Krunker.io</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Aspect</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">LOLShot.io</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Krunker.io</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Gameplay Style</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Chaotic arena shooter</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Skill based FPS</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Core Focus</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Movement creativity</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Aim and mechanics</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Map Design</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Vertical and dynamic</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Compact and tactical</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Skill Curve</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Easy to start</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">High mastery required</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>LOLShot.io rewards creativity and movement tricks, while Krunker.io focuses on precision, consistency, and mechanical skill.</p>
+
+                <h2>Explore More FPS Titles</h2>
+                <p>Instead of sticking to one style, you can rotate between different shooters to improve overall performance and adaptability:</p>
+                <ul>
+                    <li><a href="kour-io">Kour.io</a> for class based combat</li>
+                    <li><a href="veck-io">Veck.io</a> for weapon variety and fast matches</li>
+                    <li><a href="2v2-io">2v2.io</a> for team strategy and building mechanics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

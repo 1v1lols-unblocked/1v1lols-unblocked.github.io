@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Repuls.io with fast arena combat, vehicles, and smart movement where positioning, weapons, and timing shape every battle outcome.">
+    <title>Repuls.io - Futuristic Sci-Fi Multiplayer FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/repuls-io">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/repuls-io">
+    <meta property="og:title" content="Repuls.io - Futuristic Sci-Fi Multiplayer FPS">
+    <meta property="og:description" content="Master Repuls.io with fast arena combat, vehicles, and smart movement where positioning, weapons, and timing shape every battle outcome.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/repuls-io.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/repuls-io">
+    <meta property="twitter:title" content="Repuls.io - Futuristic Sci-Fi Multiplayer FPS">
+    <meta property="twitter:description" content="Master Repuls.io with fast arena combat, vehicles, and smart movement where positioning, weapons, and timing shape every battle outcome.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/repuls-io.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Repuls.io - Futuristic Sci-Fi Multiplayer FPS",
+      "url": "https://1v1lols-unblocked.github.io/repuls-io",
+      "image": "https://1v1lols-unblocked.github.io/assets/repuls-io.webp",
+      "description": "Master Repuls.io with fast arena combat, vehicles, and smart movement where positioning, weapons, and timing shape every battle outcome.",
+      "applicationCategory": "GameApplication",
+      "genre": "Sci-Fi FPS",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Repuls.io</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/repuls-io.webp" class="preview-img" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://repuls.io/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Repuls.io</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>Arena Shooter With Tactical Layers</h2>
+                <p>Repuls.io delivers a classic arena FPS experience where movement, spacing, and map control matter just as much as aiming. Instead of chaotic rushing, fights develop through positioning, pressure, and smart use of tools like grenades and melee. The game rewards players who understand when to engage, when to retreat, and how to control space across the map.</p>
+                <p>Vehicles and vertical layouts add another dimension, forcing players to constantly adapt rather than rely on a single playstyle.</p>
+
+                <h2>How Combat Decisions Matter</h2>
+                <h3>Engagement Timing</h3>
+                <ul>
+                    <li>Start fights from distance to gain advantage</li>
+                    <li>Force enemies out of cover using grenades</li>
+                    <li>Push only when you have positional control</li>
+                </ul>
+
+                <h3>Close Range Execution</h3>
+                <ul>
+                    <li>Switch to melee for quick finishes</li>
+                    <li>Avoid chasing without awareness</li>
+                    <li>Use movement to break enemy aim</li>
+                </ul>
+                <p>The difference between winning and losing often comes down to timing rather than speed.</p>
+
+                <h2>Weapon Usage by Situation</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Situation</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Recommended Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Open areas</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Use rifles for control</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Tight spaces</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Switch to high burst weapons</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Enemy hiding</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Use grenades to force movement</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Multiple threats</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Reposition instead of committing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Adapting to situations is more effective than relying on one weapon.</p>
+
+                <h2>Movement Creates Advantage</h2>
+                <p>Movement in Repuls.io is not just for navigation but a core part of combat. Players who move unpredictably and maintain speed become much harder targets, especially in open spaces where static positioning leads to quick elimination. Controlling how you move across the map allows you to dictate fights instead of reacting to them.</p>
+
+                <h2>Strafe Jumping and Shadow Peek Secrets</h2>
+                <h3>Strafe Jumping and Momentum Control</h3>
+                <p>Repuls.io includes a hidden movement mechanic where speed can be preserved and increased through angled jumps. By combining forward movement with side inputs during landing, players can maintain momentum instead of slowing down, allowing continuous acceleration across the map. Skilled players use this technique to move faster than normal while staying difficult to track, turning movement into both a defensive and offensive advantage.</p>
+
+                <h3>Shadow Peek and Anti Camp Strategy</h3>
+                <ul>
+                    <li><strong>Strafe Jumping:</strong> Combine diagonal movement with jumps to maintain speed</li>
+                    <li><strong>Momentum Control:</strong> Land at angles to avoid slowdown</li>
+                    <li><strong>Shadow Detection:</strong> Watch floor and wall shadows to reveal hidden enemies</li>
+                    <li><strong>Anti Camp Play:</strong> Use grenades after spotting shadows to force enemies out</li>
+                </ul>
+
+                <h2>Vehicles and Map Control</h2>
+                <p>Vehicles provide fast rotation and pressure across the map, allowing players to quickly engage or disengage from fights. However, they also expose your position, so using them effectively requires awareness of timing and enemy positioning rather than constant reliance.</p>
+
+                <h2>Play Smarter Not Faster</h2>
+                <ul>
+                    <li>Do not rush every fight without information</li>
+                    <li>Control angles instead of chasing kills</li>
+                    <li>Use movement to create space before attacking</li>
+                    <li>Combine weapons and utility for better results</li>
+                </ul>
+                <p>Consistent decision making leads to better long term performance.</p>
+
+                <h2>More Arena FPS Picks</h2>
+                <p>If you're looking to expand your skills, trying different styles of shooters can help you grow as a player:</p>
+                <ul>
+                    <li><a href="krunker">Krunker.io</a> improves precision and movement skill</li>
+                    <li><a href="kour-io">Kour.io</a> focuses on class based combat</li>
+                    <li><a href="veck-io">Veck.io</a> offers weapon variety and fast matches</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

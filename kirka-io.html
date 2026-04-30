@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kirka.io blends fast voxel FPS action with parkour movement, custom loadouts, and competitive modes where positioning and creativity decide wins.">
+    <title>Kirka.io - Competitive Voxel FPS Browser Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/kirka-io">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/kirka-io">
+    <meta property="og:title" content="Kirka.io - Competitive Voxel FPS Browser Game">
+    <meta property="og:description" content="Kirka.io blends fast voxel FPS action with parkour movement, custom loadouts, and competitive modes where positioning and creativity decide wins.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/kirka-io.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/kirka-io">
+    <meta property="twitter:title" content="Kirka.io - Competitive Voxel FPS Browser Game">
+    <meta property="twitter:description" content="Kirka.io blends fast voxel FPS action with parkour movement, custom loadouts, and competitive modes where positioning and creativity decide wins.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/kirka-io.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kirka.io - Competitive Voxel FPS Browser Game",
+      "url": "https://1v1lols-unblocked.github.io/kirka-io",
+      "image": "https://1v1lols-unblocked.github.io/assets/kirka-io.webp",
+      "description": "Kirka.io blends fast voxel FPS action with parkour movement, custom loadouts, and competitive modes where positioning and creativity decide wins.",
+      "applicationCategory": "GameApplication",
+      "genre": "Voxel FPS",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Kirka.io</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/kirka-io.webp" class="preview-img" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://kirka.io/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Kirka.io</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>Not Just Shooting, It Is Movement Control</h2>
+                <p>Kirka.io feels simple at first glance, but the real depth comes from how movement and positioning interact with combat. Players who stand still and aim will always lose to those who combine shooting with constant motion, vertical repositioning, and map awareness. The game rewards players who treat the environment as part of their strategy rather than just a background.</p>
+
+                <h2>Modes That Change How You Think</h2>
+                <h3>Solo and Team Pressure</h3>
+                <ul>
+                    <li>Solo mode forces constant awareness since every player is a threat</li>
+                    <li>Team battles reward coordination and map control</li>
+                    <li>Objective modes shift focus from kills to positioning</li>
+                </ul>
+
+                <h3>Parkour as a Skill Layer</h3>
+                <ul>
+                    <li>Movement challenges improve timing and control</li>
+                    <li>Precision jumps translate directly into combat advantage</li>
+                    <li>Players with strong parkour skills reposition faster</li>
+                </ul>
+                <p>Each mode trains a different aspect of gameplay instead of repeating the same loop.</p>
+
+                <h2>Loadout Choices Shape Outcomes</h2>
+                <p>Weapons in Kirka.io are not interchangeable because each one defines how you approach fights. Rifles allow consistent mid range control, while shotguns dominate tight areas. Melee options become useful when closing distance or finishing low health targets.</p>
+                <p>Instead of switching randomly, experienced players build a playstyle around one loadout and refine it over time.</p>
+
+                <h2>What Actually Wins Fights</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Situation</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Weak Approach</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Effective Approach</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Open fight</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Stand and shoot</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Strafe and reposition</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Enemy above</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Chase directly</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Change angle or rotate</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Close range</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Panic shooting</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Controlled burst or melee</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Multiple enemies</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Commit fight</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Break line of sight</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Consistency comes from decision making rather than raw aim.</p>
+
+                <h2>Hidden Community Behaviors and Secrets</h2>
+                <h3>Outsider View Parkour Spots</h3>
+                <p>Some maps contain extremely small ledges or hidden climb paths that allow players to reach unintended high positions. From these points, distant objects may render differently, giving you a wide overview of the map. Players who discover these spots can track enemy movement from above without being easily detected, turning positioning into a major advantage.</p>
+
+                <h3>Clan Identity and Visual Status</h3>
+                <ul>
+                    <li><strong>Name Colors:</strong> Special color effects often indicate clan status</li>
+                    <li><strong>Visual Presence:</strong> Appearance can signal experience level</li>
+                    <li><strong>Social Recognition:</strong> Some players gain respect through identity, not stats</li>
+                    <li><strong>Community Influence:</strong> Being part of a known group changes interactions</li>
+                </ul>
+
+                <h3>Unwritten Server Rules</h3>
+                <p>In some low activity servers, players may gather without fighting and use the match space for interaction. Interrupting these moments often triggers collective retaliation from everyone present. Understanding these behaviors helps avoid unnecessary conflicts and reveals how community dynamics shape the experience.</p>
+
+                <h2>Progression Keeps You Playing</h2>
+                <p>Chests, daily quests, and leaderboards provide continuous goals that push players to improve. Unlocking new weapons and cosmetics adds variety, while ranking systems create long term motivation to refine skills and climb higher.</p>
+
+                <h2>Controls That Support Speed</h2>
+                <ul>
+                    <li><strong>WASD:</strong> Movement</li>
+                    <li><strong>Mouse:</strong> Aim</li>
+                    <li><strong>Left click:</strong> Shoot</li>
+                    <li><strong>Right click or X:</strong> Aim</li>
+                    <li><strong>Space:</strong> Jump</li>
+                    <li><strong>Shift:</strong> Crouch</li>
+                    <li><strong>E:</strong> Dash</li>
+                </ul>
+                <p>Fluid control usage is essential for maintaining momentum.</p>
+
+                <h2>Try Other FPS Styles</h2>
+                <p>If you're looking to diversify your skills, exploring other shooters can provide fresh challenges and techniques:</p>
+                <ul>
+                    <li><a href="krunker">Krunker.io</a> focuses on precision and movement mastery</li>
+                    <li><a href="repuls-io">Repuls.io</a> highlights mobility and map control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

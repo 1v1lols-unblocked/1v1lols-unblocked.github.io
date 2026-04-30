@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veck.io is a fast paced 3D FPS browser game with intense combat, multiple modes, and competitive multiplayer battles across global servers.">
+    <title>Veck.io - Sleek and Fast-Paced 3D Browser FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/veck-io">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/veck-io">
+    <meta property="og:title" content="Veck.io - Sleek and Fast-Paced 3D Browser FPS">
+    <meta property="og:description" content="Veck.io is a fast paced 3D FPS browser game with intense combat, multiple modes, and competitive multiplayer battles across global servers.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/veck-io.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/veck-io">
+    <meta property="twitter:title" content="Veck.io - Sleek and Fast-Paced 3D Browser FPS">
+    <meta property="twitter:description" content="Veck.io is a fast paced 3D FPS browser game with intense combat, multiple modes, and competitive multiplayer battles across global servers.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/veck-io.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Veck.io - Sleek and Fast-Paced 3D Browser FPS",
+      "url": "https://1v1lols-unblocked.github.io/veck-io",
+      "image": "https://1v1lols-unblocked.github.io/assets/veck-io.webp",
+      "description": "Veck.io is a fast paced 3D FPS browser game with intense combat, multiple modes, and competitive multiplayer battles across global servers.",
+      "applicationCategory": "GameApplication",
+      "genre": "Abstract Shooter",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Veck.io</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/veck-io.webp" class="preview-img" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://veck.io/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Veck.io</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>What Is Veck.io</h2>
+                <p>Veck.io is a browser based 3D multiplayer FPS designed for fast action and instant access. Players can join matches without installation and compete in real time against others worldwide. The game focuses on responsive shooting, fluid movement, and short but intense matches that fit both casual and competitive playstyles. Its low poly visual style ensures stable performance across many devices while keeping gameplay smooth and readable during chaotic fights.</p>
+
+                <h2>Core Gameplay Experience</h2>
+                <h3>Movement Driven Combat</h3>
+                <p>Movement plays a central role in survival and combat efficiency.</p>
+                <ul>
+                    <li>Sliding allows fast repositioning</li>
+                    <li>Jumping disrupts enemy aim</li>
+                    <li>Strafing improves evasion</li>
+                </ul>
+                <p>Players who understand movement flow will consistently outperform those who rely only on aim.</p>
+
+                <h3>Weapon Diversity</h3>
+                <p>The game offers a wide range of weapons that support different strategies.</p>
+                <ul>
+                    <li>Snipers excel at long range precision</li>
+                    <li>Shotguns dominate close encounters</li>
+                    <li>SMGs enable aggressive pushes</li>
+                    <li>Launchers control crowded areas</li>
+                </ul>
+                <p>Choosing the right weapon for each situation is key to maintaining pressure.</p>
+
+                <h2>Game Modes Overview</h2>
+                <ul>
+                    <li><strong>Arcade Mode:</strong> Quick matches with fast respawns and constant engagement</li>
+                    <li><strong>Team Battles:</strong> Competitive formats from 1v1 to 4v4 that reward coordination</li>
+                    <li><strong>Gun Game:</strong> Weapon progression after each elimination that tests adaptability</li>
+                </ul>
+                <p>Each mode creates a different pacing and encourages players to adjust their approach.</p>
+
+                <h2>Controls and Progression</h2>
+                <h3>Basic Controls</h3>
+                <ul>
+                    <li><strong>WASD:</strong> Move</li>
+                    <li><strong>Space:</strong> Jump</li>
+                    <li><strong>Shift or C:</strong> Slide</li>
+                    <li><strong>Right click or E:</strong> Aim</li>
+                    <li><strong>Left click:</strong> Shoot</li>
+                </ul>
+
+                <h3>Progression System</h3>
+                <p>Players earn rewards through performance and completed tasks.</p>
+                <ul>
+                    <li>Gain coins after matches</li>
+                    <li>Unlock skins and customization options</li>
+                    <li>Access new weapons and upgrades</li>
+                    <li>Progress through pass rewards</li>
+                </ul>
+                <p>This system supports both short sessions and long term progression.</p>
+
+                <h2>Hidden Mechanics That Matter</h2>
+                <p>Most players overlook subtle mechanics that can significantly impact performance. Mastering these hidden elements can give you an edge in competitive matches and improve consistency over time.</p>
+                <ul>
+                    <li><strong>Slide Jump Technique:</strong> Combining slide and jump creates faster movement while also making your hitbox less predictable. This makes it harder for snipers to land accurate headshots and increases your survivability in open areas</li>
+                    <li><strong>Last Bullet Effect:</strong> Some players believe the final bullet in a magazine or low health situations slightly improve accuracy or damage. While not officially confirmed, many clutch moments seem to support this pattern during intense fights</li>
+                    <li><strong>Energy Pistol Limitation:</strong> This weapon is powerful but loses effectiveness when fired during sliding. Stopping briefly before shooting improves accuracy and allows you to maximize its damage potential</li>
+                </ul>
+                <p>Understanding these mechanics helps refine decision making beyond basic shooting and movement.</p>
+
+                <h2>One Hour Survival Challenge</h2>
+                <p>Most players focus on basic mechanics, but extended sessions reveal deeper gameplay patterns that directly impact performance. During the first 15 minutes, matches feel fast and controlled as you begin to understand map flow and positioning. If you achieve a high kill streak, other players naturally shift their attention toward your location, increasing pressure and forcing more defensive movement. After around 45 minutes, spawn patterns become easier to predict. Experienced players stop chasing enemies and instead position themselves near high traffic areas to maximize efficiency and maintain a strong kill ratio. Once you reach the one hour mark, technical performance becomes a factor. Visual effects and accumulated browser load can introduce slight input delay, which affects reaction time. Refreshing the session at this point helps maintain smooth gameplay and consistent performance.</p>
+
+                <h2>Why It Works</h2>
+                <p>This game succeeds by combining accessibility with skill depth. Players can start instantly while still having room to improve through movement mastery, weapon control, and map awareness. The fast match structure keeps engagement high, while competitive elements encourage continuous improvement over time.</p>
+
+                <h2>More Shooting Games</h2>
+                <p>If you enjoy Veck.io, exploring similar fast paced shooters like <a href="krunker">Krunker</a> or <a href="kour-io">Kour.io</a> can help refine your reflexes and expand your playstyle across different combat systems.</p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

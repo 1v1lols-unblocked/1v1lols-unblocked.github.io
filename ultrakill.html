@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ultrakill delivers brutal speed driven combat where style combos, aggressive movement, and nonstop action decide whether you dominate or fall.">
+    <title>Ultrakill - Speed Driven FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/ultrakill">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/ultrakill">
+    <meta property="og:title" content="Ultrakill - Speed Driven FPS">
+    <meta property="og:description" content="Ultrakill delivers brutal speed driven combat where style combos, aggressive movement, and nonstop action decide whether you dominate or fall.">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/ultrakill.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/ultrakill">
+    <meta property="twitter:title" content="Ultrakill - Speed Driven FPS">
+    <meta property="twitter:description" content="Ultrakill delivers brutal speed driven combat where style combos, aggressive movement, and nonstop action decide whether you dominate or fall.">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/ultrakill.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ultrakill - Speed Driven FPS",
+      "url": "https://1v1lols-unblocked.github.io/ultrakill",
+      "image": "https://1v1lols-unblocked.github.io/assets/ultrakill.webp",
+      "description": "Ultrakill delivers brutal speed driven combat where style combos, aggressive movement, and nonstop action decide whether you dominate or fall.",
+      "applicationCategory": "GameApplication",
+      "genre": "Action, FPS",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+            <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">Ultrakill</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                    <div class="play-overlay" id="play-overlay">
+                        <img src="assets/ultrakill.webp" class="preview-img" alt="Ultrakill" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://freedomgamingzone.github.io/ultrakill/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">Ultrakill</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>Speed Is Not Optional Here</h2>
+                <p>Ultrakill is a high intensity FPS where survival depends on how fast and aggressive you play rather than how safely you approach combat. Instead of slowing down to aim carefully, the game constantly pushes you forward into chaotic arenas filled with enemies, forcing you to react, adapt, and attack at the same time. Every second you hesitate increases pressure, turning hesitation into the biggest threat.</p>
+
+                <h2>Combat Is Built Around Momentum</h2>
+                <h3>Movement Is Your Defense</h3>
+                <ul>
+                    <li>Sliding, dashing, and jumping keep you alive</li>
+                    <li>Staying airborne reduces incoming damage</li>
+                    <li>Unpredictable movement breaks enemy targeting</li>
+                </ul>
+
+                <h3>Aggression Fuels Survival</h3>
+                <ul>
+                    <li>Close range kills restore health</li>
+                    <li>Retreating reduces your recovery potential</li>
+                    <li>Constant pressure keeps enemies under control</li>
+                </ul>
+                <p>Ultrakill rewards players who move forward instead of backing away.</p>
+
+                <h2>Weapons Are Meant to Be Combined</h2>
+                <p>The weapon system is designed for chaining actions rather than using a single tool repeatedly. Each weapon offers different firing modes and interacts with others in ways that allow creative combat solutions. Fast switching between weapons is not optional but necessary to maintain flow and maximize damage output.</p>
+                <p>Players who learn how to combine weapons gain a massive advantage over those who rely on basic shooting.</p>
+
+                <h2>Style System Changes How You Play</h2>
+                <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: rgba(255, 255, 255, 0.1);">
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Behavior</th>
+                                <th style="padding: 12px; border: 1px solid var(--glass-border); text-align: left;">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Repetitive attacks</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Low score and slower progress</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Weapon variety</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Higher style rating</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Continuous combos</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Faster enemy control</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Aggressive play</td>
+                                <td style="padding: 12px; border: 1px solid var(--glass-border);">Better survival and score</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>The game actively rewards creativity and punishes passive play.</p>
+
+                <h2>Hidden Combat Awareness</h2>
+                <h3>Shadow Based Enemy Detection</h3>
+                <p>Ultrakill contains a subtle visual mechanic where enemy shadows can reveal their position before they are directly visible. In areas with layered structures or thin surfaces, large enemies may cast shadows that appear below or through floors. Observing these shadows allows players to anticipate enemy movement and prepare attacks before direct contact happens.</p>
+
+                <h3>Practical Shadow Usage</h3>
+                <ul>
+                    <li><strong>Early Detection:</strong> Spot enemies before they enter your view</li>
+                    <li><strong>Pre Aim Setup:</strong> Prepare attacks in advance</li>
+                    <li><strong>Ambush Control:</strong> Attack as enemies appear</li>
+                    <li><strong>Awareness Boost:</strong> Reduce surprise encounters</li>
+                </ul>
+                <p>Using environmental cues like shadows gives a strong advantage in high pressure situations.</p>
+
+                <h2>Why Players Struggle Early</h2>
+                <p>Many players approach Ultrakill like a traditional shooter, focusing on aiming and defensive positioning, which leads to quick failure. The game requires a shift in mindset where movement, speed, and aggression become the core mechanics instead of support systems. Adapting to this philosophy is the key step toward improvement.</p>
+
+                <h2>Experience That Feels Different</h2>
+                <p>Ultrakill creates a unique flow where movement, combat, and style merge into a single system. Instead of thinking about separate mechanics, players gradually learn to act instinctively, chaining actions together in a continuous rhythm that defines the entire experience.</p>
+
+                <h2>Other High Speed Action Games</h2>
+                <p>If you enjoy the fast-paced gameplay of Ultrakill, check out these titles:</p>
+                <ul>
+                    <li><a href="krunker">Krunker.io</a> focuses on precision and fast reflex shooting</li>
+                    <li><a href="ev-io">Ev.io</a> combines movement with ability based combat</li>
+                    <li><a href="lolshot-io">LOLShot.io</a> emphasizes chaotic movement and vertical fights</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+

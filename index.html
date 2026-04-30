@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wiAEjWOFsNtsanNrFaIx4at37JyVYVcLn3egelB8FLY" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="1v1.LOL | Build and Shoot Battle Game">
+    <meta name="description" content="Play 1v1.LOL, a competitive online build and shoot game where skill decides every fight. Master fast building, sharpen your aim, and start winning now!">
+    <title>1v1.LOL | Build and Shoot Battle Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.min.css?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="canonical" href="https://1v1lols-unblocked.github.io/">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1v1lols-unblocked.github.io/">
+    <meta property="og:title" content="1v1.LOL | Build and Shoot Battle Game">
+    <meta property="og:description" content="Play 1v1.LOL, a competitive online build and shoot game where skill decides every fight. Master fast building, sharpen your aim, and start winning now!">
+    <meta property="og:image" content="https://1v1lols-unblocked.github.io/assets/1v1-lol.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1v1lols-unblocked.github.io/">
+    <meta property="twitter:title" content="1v1.LOL | Build and Shoot Battle Game">
+    <meta property="twitter:description" content="Play 1v1.LOL, a competitive online build and shoot game where skill decides every fight. Master fast building, sharpen your aim, and start winning now!">
+    <meta property="twitter:image" content="https://1v1lols-unblocked.github.io/assets/1v1-lol.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "1v1.LOL | Build and Shoot Battle Game",
+      "url": "https://1v1lols-unblocked.github.io/",
+      "image": "https://1v1lols-unblocked.github.io/assets/1v1-lol.webp",
+      "description": "Play 1v1.LOL, a competitive online build and shoot game where skill decides every fight. Master fast building, sharpen your aim, and start winning now!",
+      "applicationCategory": "GameApplication",
+      "genre": "Shooter, Building",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQHC2RZ7N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXQHC2RZ7N');
+    </script>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+                        <div class="nav-left">
+                <a href="index" class="logo">1V1<span>.LOL</span></a>
+                <div class="header-game-title">
+                    <span class="separator">|</span>
+                    <span class="title">1v1.lol</span>
+                </div>
+                <div class="header-shortcuts">
+                    <a href="2v2-io" class="shortcut-btn">2V2.IO</a>
+                    <a href="krunker" class="shortcut-btn">KRUNKER</a>
+                    <a href="ultrakill" class="shortcut-btn">ULTRAKILL</a>
+                    <a href="ev-io" class="shortcut-btn">EV.IO</a>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="game-search" placeholder="Search games..." autocomplete="off" onfocus="showSearchResults()" onkeyup="filterGames()">
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="nav-btn" onclick="goToRandomGame()">
+                        <i class="fas fa-dice"></i> Random
+                    </a></li>
+                    <li><a href="favorites" class="nav-btn fav">
+                        <i class="fas fa-heart"></i> Favorites
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+    <header class="hero" id="home" style="min-height: auto; padding: 100px 0 0;">
+        <div class="container hero-centered">
+            <div class="hero-main-game">
+                <div class="game-container" id="game-container">
+                                        <div class="play-overlay" id="play-overlay">
+                        <img src="assets/1v1-lol.webp" class="preview-img" alt="1v1.LOL | Build and Shoot Battle Game" onerror="this.src='assets/hero.webp'">
+                        <div class="btn btn-play" onclick="loadGame()">
+                            Play Now <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <iframe data-src="https://2v2.io/" id="game-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="game-overlay"></div>
+                </div>
+                
+                                <div class="game-actions">
+                    <div class="action-left">
+                        <h1 class="game-title">1V1.LOL</h1>
+                    </div>
+                    <div class="action-right">
+                        <button class="action-btn btn-theater" onclick="toggleCinemaMode()">
+                            <i class="fas fa-expand"></i> Theater Mode
+                        </button>
+                        <button class="action-btn btn-fullscreen" onclick="toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i> Play Fullscreen
+                        </button>
+                        <button class="action-btn btn-favorite" id="like-btn" onclick="toggleLike()">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn btn-share" onclick="shareGame()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+            <section class="more-games" id="more-games" style="background: rgba(10, 10, 12, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover More Games</h2>
+                <div class="line"></div>
+            </div>
+            <div class="games-grid">
+                <a href="veck-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/veck-io.webp" alt="Veck.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Veck.io</div>
+                </a>
+                <a href="2v2-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/2v2-io.webp" alt="2v2.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">2v2.io</div>
+                </a>
+                <a href="bloxd-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bloxd-io.webp" alt="Bloxd.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bloxd.io</div>
+                </a>
+                <a href="lolbeans-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolbeans-io.webp" alt="LOLBeans.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLBeans.io</div>
+                </a>
+                <a href="kour-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kour-io.webp" alt="Kour.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kour.io</div>
+                </a>
+                <a href="lolshot-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/lolshot-io.webp" alt="LOLShot.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">LOLShot.io</div>
+                </a>
+                <a href="krunker" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/krunker.webp" alt="Krunker" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Krunker</div>
+                </a>
+                <a href="overtide-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/overtide-io.webp" alt="Overtide.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Overtide.io</div>
+                </a>
+                <a href="repuls-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/repuls-io.webp" alt="Repuls.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Repuls.io</div>
+                </a>
+                <a href="craftnite-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/craftnite-io.webp" alt="Craftnite.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Craftnite.io</div>
+                </a>
+                <a href="kirka-io" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/kirka-io.webp" alt="Kirka.io" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Kirka.io</div>
+                </a>
+                <a href="bad-egg" class="game-card">
+                    <div class="game-thumb">
+                        <img src="assets/bad-egg.webp" alt="Bad Egg" onerror="this.src='assets/hero.webp'">
+                    </div>
+                    <div class="game-name">Bad Egg</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-content" id="about-game">
+        <div class="container">
+            <div class="seo-card">
+                <h2>Introduction to 1v1.LOL</h2>
+                <p>1v1.LOL is a fast paced online shooter that combines building mechanics with competitive gunplay. The game takes place in a third person perspective, where players fight in small arenas using both weapons and structures to gain an advantage.</p>
+                <p>Each match is built around skill. Players must aim accurately, react quickly, and build effectively under pressure. Unlike traditional shooters, survival in 1v1.LOL depends just as much on positioning and structure control as it does on shooting ability.</p>
+                <p>The game is accessible directly in a browser, which means players can start playing instantly without downloading or installing anything. This simplicity has made it especially popular among players who want quick matches with real competitive depth.</p>
+
+                <h2>What Makes 1v1.LOL Different</h2>
+                <p>1v1.LOL is not just another shooting game. Its core identity comes from the combination of mechanics that are usually separated in other games.</p>
+                <p>Key elements that define the experience:</p>
+                <ul>
+                    <li>Real time building during combat</li>
+                    <li>Short matches that focus on pure skill</li>
+                    <li>No reliance on random loot systems</li>
+                    <li>Strong emphasis on mechanical improvement</li>
+                    <li>Flexible modes for both practice and competition</li>
+                </ul>
+                <p>This design ensures that players improve over time through skill rather than chance.</p>
+
+                <h2>Core Gameplay Breakdown</h2>
+                
+                <h3>Shooting System</h3>
+                <p>The shooting system in 1v1.LOL is designed to be responsive and precise. Players must rely on their ability to track movement and control recoil during fights.</p>
+                <p>Main weapon types include:</p>
+                <ul>
+                    <li><strong>Assault rifle</strong> for balanced mid range combat</li>
+                    <li><strong>Shotgun</strong> for high damage at close range</li>
+                    <li><strong>Sniper rifle</strong> for long range accuracy</li>
+                    <li><strong>Pickaxe</strong> for breaking enemy structures</li>
+                </ul>
+                <p>Each weapon requires a different rhythm. Switching weapons at the right moment often decides the outcome of a fight.</p>
+
+                <h3>Building System</h3>
+                <p>Building is the defining mechanic of the game. Players can instantly create structures to control space and defend themselves.</p>
+                <p>Main building elements:</p>
+                <ul>
+                    <li><strong>Walls</strong> to block incoming shots</li>
+                    <li><strong>Ramps</strong> to gain vertical advantage</li>
+                    <li><strong>Floors</strong> to stabilize movement</li>
+                    <li><strong>Doors</strong> for controlled entry and exit</li>
+                </ul>
+                <p>Good players build without hesitation. The faster you place structures, the harder it becomes for opponents to land effective shots.</p>
+
+                <h2>Game Modes Explained</h2>
+                <p>1v1.LOL provides multiple modes that support both casual play and serious improvement.</p>
+                
+                <h3>Competitive Modes</h3>
+                <ul>
+                    <li><strong>1v1</strong> mode focuses on direct duels</li>
+                    <li><strong>BR Duos</strong> allows team based survival gameplay</li>
+                    <li><strong>Box 2v2</strong> creates fast paced close combat situations</li>
+                </ul>
+                
+                <h3>Practice Modes</h3>
+                <ul>
+                    <li><strong>JustBuild</strong> helps players improve construction speed</li>
+                    <li><strong>Aim Trainer</strong> focuses on accuracy and reaction</li>
+                    <li><strong>Party</strong> mode allows private matches with friends</li>
+                </ul>
+                <p>Each mode plays a role in skill development and keeps the experience varied.</p>
+
+                <h2>Weapons Comparison Table</h2>
+                <div class="seo-table-wrapper">
+                    <table class="seo-table">
+                        <thead>
+                            <tr>
+                                <th>Weapon</th>
+                                <th>Range</th>
+                                <th>Strength</th>
+                                <th>Weakness</th>
+                                <th>Best Situation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Assault Rifle</td>
+                                <td>Medium</td>
+                                <td>Balanced damage</td>
+                                <td>Not strong in extremes</td>
+                                <td>General fights</td>
+                            </tr>
+                            <tr>
+                                <td>Shotgun</td>
+                                <td>Short</td>
+                                <td>High burst damage</td>
+                                <td>Limited range</td>
+                                <td>Close combat</td>
+                            </tr>
+                            <tr>
+                                <td>Sniper Rifle</td>
+                                <td>Long</td>
+                                <td>High precision</td>
+                                <td>Slow rate of fire</td>
+                                <td>Long distance fights</td>
+                            </tr>
+                            <tr>
+                                <td>Pickaxe</td>
+                                <td>Very short</td>
+                                <td>Break structures</td>
+                                <td>No combat damage</td>
+                                <td>Destroying builds</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Controls Overview</h2>
+                <h3>PC Controls</h3>
+                <ul>
+                    <li><strong>WASD</strong> for movement</li>
+                    <li><strong>Mouse</strong> for aiming and shooting</li>
+                    <li><strong>Space</strong> for jumping</li>
+                    <li><strong>Shift</strong> for crouching</li>
+                    <li><strong>Z X C V Y</strong> for building selection</li>
+                    <li><strong>F or number keys</strong> for weapon switching</li>
+                    <li><strong>R</strong> for reload</li>
+                </ul>
+                
+                <h3>Mobile Controls</h3>
+                <p>Mobile gameplay uses touch based controls that can be customized. The layout is designed to remain responsive even during fast fights.</p>
+
+                <h2>Winning Strategies That Actually Work</h2>
+                <p>Many players focus only on aim, but that is not enough to win consistently in 1v1.LOL.</p>
+                
+                <h3>Core Strategies</h3>
+                <ul>
+                    <li>Build immediately when taking damage</li>
+                    <li>Always try to gain high ground</li>
+                    <li>Keep moving to avoid predictable patterns</li>
+                    <li>Use structures to control enemy movement</li>
+                </ul>
+                
+                <h3>Advanced Techniques</h3>
+                <ul>
+                    <li>Combine building and shooting in one motion</li>
+                    <li>Force opponents into close range fights</li>
+                    <li>Break enemy builds to create openings</li>
+                    <li>Anticipate enemy reactions instead of reacting late</li>
+                </ul>
+                <p>These strategies separate experienced players from beginners.</p>
+
+                <h2>Common Mistakes Players Make</h2>
+                <p>Understanding mistakes is just as important as learning strategies.</p>
+                <p>Frequent issues include:</p>
+                <ul>
+                    <li>Overbuilding without purpose</li>
+                    <li>Ignoring positioning</li>
+                    <li>Using the wrong weapon for distance</li>
+                    <li>Staying still during fights</li>
+                    <li>Panicking under pressure</li>
+                </ul>
+                <p>Avoiding these mistakes leads to faster improvement.</p>
+
+                <h2>1v1.LOL vs Fortnite Comparison</h2>
+                <div class="seo-table-wrapper">
+                    <table class="seo-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>1v1.LOL</th>
+                                <th>Fortnite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gameplay Speed</td>
+                                <td>Fast</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td>Complexity</td>
+                                <td>Simple</td>
+                                <td>Complex</td>
+                            </tr>
+                            <tr>
+                                <td>Download</td>
+                                <td>Not required</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td>Accessibility</td>
+                                <td>Very high</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Match Style</td>
+                                <td>Skill focused</td>
+                                <td>Mixed mechanics</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>1v1.LOL focuses on direct competition and mechanical skill, while Fortnite includes more complex systems and larger scale gameplay.</p>
+
+                <h2>Why Players Keep Coming Back</h2>
+                <p>The replay value of 1v1.LOL comes from constant improvement. Every match feels like an opportunity to refine skills and perform better than before.</p>
+                <p>Reasons players stay engaged:</p>
+                <ul>
+                    <li>Quick matches that fit any schedule</li>
+                    <li>Clear skill progression</li>
+                    <li>Competitive environment</li>
+                    <li>Ability to play with friends</li>
+                    <li>Continuous updates and improvements</li>
+                </ul>
+                <p>The game rewards consistency and practice, making it appealing for long term play.</p>
+
+                <h2>FAQs</h2>
+                <h3>Is 1v1.LOL free to play?</h3>
+                <p>Yes, the game is completely free and accessible in a browser.</p>
+
+                <h3>Can I play 1v1.LOL on mobile?</h3>
+                <p>Yes, it is available on both Android and iOS devices.</p>
+
+                <h3>Does 1v1.LOL require download?</h3>
+                <p>No, you can play instantly without installing anything.</p>
+
+                <h3>What is JustBuild mode?</h3>
+                <p>It is a practice mode focused only on building skills.</p>
+
+                <h3>Can I play with friends?</h3>
+                <p>Yes, private matches can be created and shared.</p>
+
+                <h2>Hidden Oddities Inside 1v1.LOL</h2>
+                <h3>The “Underworld” Beneath the Map</h3>
+                <p>In Free Build, old structures do not disappear right away. They fall into the void and create a chaotic digital landfill. When you land there and try placing a platform above the lethal surface, the engine begins to behave strangely. Sounds distort. Objects float. Physics feel unstable. It becomes a quiet broken layer far removed from the main fight.</p>
+
+                <h3>The Battle of “Finger Dancers”</h3>
+                <p>At high level play, matches feel like rhythm sessions on a keyboard. Each input sequence forms a personal tempo. Smooth timing and consistency decide the outcome more than raw accuracy. When your inputs flow without interruption, your control over the fight becomes noticeably stronger.</p>
+
+                <h3>The Forgotten “Architects”</h3>
+                <ul>
+                    <li>Some players enter matches with no intention to fight</li>
+                    <li>They focus on building symmetrical or creative structures</li>
+                    <li>These constructions often appear in public servers without warning</li>
+                    <li>Destroying them removes a unique layer of the experience</li>
+                    <li>Protecting these builds can feel more rewarding than winning</li>
+                </ul>
+
+                <h3>The “Breathing” of Building Materials</h3>
+                <div class="seo-table-wrapper">
+                    <table class="seo-table">
+                        <thead>
+                            <tr>
+                                <th>Material</th>
+                                <th>Sound Character</th>
+                                <th>Player Signal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Wood</td>
+                                <td>Light and rapid</td>
+                                <td>Urgency and pressure</td>
+                            </tr>
+                            <tr>
+                                <td>Brick</td>
+                                <td>Balanced and steady</td>
+                                <td>Adaptable playstyle</td>
+                            </tr>
+                            <tr>
+                                <td>Metal</td>
+                                <td>Deep and heavy</td>
+                                <td>Control and patience</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>The “Ghosts” in Battle Royale</h3>
+                <p>Near the edge of the zone, visual traces sometimes appear and disappear. These include distant names or flickering silhouettes. They resemble leftover data rather than real players. Observant players can use these illusions to confuse opponents who rely only on visual confirmation.</p>
+
+                <h2>Conclusion</h2>
+                <p>1v1.LOL delivers a focused and competitive experience that combines shooting and building in a fast paced environment. Its accessibility, skill based design, and variety of modes make it suitable for both beginners and experienced players.</p>
+                <p>Players who invest time into mastering both aim and building will see consistent improvement. With quick matches and responsive gameplay, 1v1.LOL remains one of the most effective browser based shooters available today.</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <a href="index" class="logo" style="margin-bottom: 2rem; display: inline-flex;">1V1<span>.LOL</span></a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 1v1.lol Unblocked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,336 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section, header');
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Active link highlighting
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Handle Game Preview Background Blur
+    const gameContainer = document.getElementById('game-container');
+    const previewImg = document.querySelector('.preview-img');
+    if (gameContainer && previewImg) {
+        const updateBg = () => {
+            gameContainer.style.setProperty('--bg-preview', `url('${previewImg.src}')`);
+        };
+        updateBg();
+        previewImg.addEventListener('load', updateBg);
+        if (previewImg.complete) updateBg();
+    }
+
+    // Reveal animations on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.mode-card, .section-title, .hero-content, .hero-image');
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+        revealObserver.observe(el);
+    });
+
+    // Smooth scroll for nav links (redundant due to CSS scroll-behavior but good for JS control)
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+
+function toggleFullScreen() {
+    const elem = document.getElementById("game-container");
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+}
+
+function loadGame() {
+    const frame = document.getElementById('game-frame');
+    const overlay = document.getElementById('play-overlay');
+    
+    // Set src from data-src
+    frame.src = frame.getAttribute('data-src');
+    
+    // Smooth transition
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    
+    setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 500);
+}
+
+const GAMES_LIST = [
+    { title: "Veck.io", slug: "veck-io" },
+    { title: "2v2.io", slug: "2v2-io" },
+    { title: "Bloxd.io", slug: "bloxd-io" },
+    { title: "LOLBeans.io", slug: "lolbeans-io" },
+    { title: "Kour.io", slug: "kour-io" },
+    { title: "LOLShot.io", slug: "lolshot-io" },
+    { title: "Krunker", slug: "krunker" },
+    { title: "Overtide.io", slug: "overtide-io" },
+    { title: "Repuls.io", slug: "repuls-io" },
+    { title: "Craftnite.io", slug: "craftnite-io" },
+    { title: "Kirka.io", slug: "kirka-io" },
+    { title: "Bad Egg", slug: "bad-egg" },
+    { title: "1v1.lol", slug: "index" }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateLikeStatus();
+    
+    // Check if on favorites page - robust check
+    const path = window.location.pathname;
+    if (path.endsWith('favorites') || path.endsWith('favorites.html') || path.includes('/favorites')) {
+        renderFavorites();
+    }
+});
+
+function toggleLike() {
+    const btn = document.getElementById('like-btn');
+    if (!btn) return;
+
+    const titleElement = document.querySelector('h1') || document.querySelector('.title');
+    const title = titleElement ? titleElement.innerText.replace(' Unblocked', '') : 'Unknown Game';
+    
+    // Normalize slug for comparison (remove leading slash and .html extension)
+    let slug = window.location.pathname.split('/').pop() || 'index';
+    slug = slug.replace('.html', '');
+    if (slug === '') slug = 'index';
+    
+    let favorites = JSON.parse(localStorage.getItem('fav_games')) || [];
+    const isLiked = favorites.some(f => f.slug === slug);
+    
+    if (isLiked) {
+        // Remove
+        favorites = favorites.filter(f => f.slug !== slug && f.slug !== slug + '.html' && f.slug !== slug.replace('.html', ''));
+        btn.classList.remove('active');
+        btn.querySelector('i').className = 'far fa-heart';
+        showToast('<i class="fas fa-trash"></i> Removed from Favorites');
+    } else {
+        // Add
+        favorites.push({ title, slug });
+        btn.classList.add('active');
+        btn.querySelector('i').className = 'fas fa-heart';
+        showToast('<i class="fas fa-heart"></i> Added to Favorites!');
+    }
+    
+    localStorage.setItem('fav_games', JSON.stringify(favorites));
+}
+
+function updateLikeStatus() {
+    const btn = document.getElementById('like-btn');
+    if (!btn) return;
+    
+    let slug = window.location.pathname.split('/').pop() || 'index';
+    slug = slug.replace('.html', '');
+    if (slug === '') slug = 'index';
+
+    const favorites = JSON.parse(localStorage.getItem('fav_games')) || [];
+    
+    if (favorites.some(f => f.slug === slug)) {
+        btn.classList.add('active');
+        btn.querySelector('i').classList.replace('far', 'fas');
+    }
+}
+
+function filterGames() {
+    const input = document.getElementById('game-search');
+    const filter = input.value.toLowerCase();
+    const dropdown = document.getElementById('search-results');
+    
+    if (filter === "") {
+        dropdown.classList.remove('active');
+        return;
+    }
+
+    const filteredGames = GAMES_LIST.filter(game => game.title.toLowerCase().includes(filter));
+    
+    if (filteredGames.length > 0) {
+        dropdown.innerHTML = filteredGames.map(game => {
+            const imgSlug = (game.slug === 'index' || game.slug === 'index.html') ? '1v1-lol' : game.slug.replace('.html', '');
+            return `
+                <a href="${game.slug}" class="search-result-item">
+                    <img src="assets/${imgSlug}.webp" onerror="this.src='assets/favicon.webp'">
+                    <span>${game.title}</span>
+                </a>
+            `;
+        }).join('');
+        dropdown.classList.add('active');
+    } else {
+        dropdown.innerHTML = '<div style="padding: 15px; color: var(--text-muted); font-size: 0.9rem;">No games found</div>';
+        dropdown.classList.add('active');
+    }
+}
+
+function showSearchResults() {
+    const input = document.getElementById('game-search');
+    const dropdown = document.getElementById('search-results');
+    
+    // Clear value if focused (as requested: xóa nội dung tìm kiếm)
+    input.value = "";
+    
+    dropdown.innerHTML = GAMES_LIST.map(game => {
+        const imgSlug = (game.slug === 'index' || game.slug === 'index.html') ? '1v1-lol' : game.slug.replace('.html', '');
+        return `
+            <a href="${game.slug}" class="search-result-item">
+                <img src="assets/${imgSlug}.webp" onerror="this.src='assets/favicon.webp'">
+                <span>${game.title}</span>
+            </a>
+        `;
+    }).join('');
+    dropdown.classList.add('active');
+}
+
+// Close search when clicking outside
+document.addEventListener('click', (e) => {
+    const searchContainer = document.querySelector('.search-container');
+    const dropdown = document.getElementById('search-results');
+    if (searchContainer && !searchContainer.contains(e.target)) {
+        if (dropdown) dropdown.classList.remove('active');
+    }
+});
+
+function goToRandomGame() {
+    let currentSlug = window.location.pathname.split('/').pop() || 'index';
+    currentSlug = currentSlug.replace('.html', '');
+    if (currentSlug === '') currentSlug = 'index';
+    
+    // Filter out the current game to ensure a new experience
+    const otherGames = GAMES_LIST.filter(game => game.slug !== currentSlug);
+    
+    if (otherGames.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherGames.length);
+        window.location.href = otherGames[randomIndex].slug;
+    } else {
+        // Fallback to index if something is wrong
+        window.location.href = 'index';
+    }
+}
+
+function renderFavorites() {
+    const grid = document.getElementById('favorites-grid');
+    if (!grid) return;
+
+    const favorites = JSON.parse(localStorage.getItem('fav_games')) || [];
+    
+    if (favorites.length === 0) {
+        grid.innerHTML = `
+            <div style="text-align:center; grid-column: 1/-1; padding: 4rem 0;">
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">You haven't added any favorite games yet.</p>
+                <a href="index" class="btn btn-primary">Discover Games</a>
+            </div>
+        `;
+        return;
+    }
+    
+    // Filter out duplicates based on normalized slug
+    const seen = new Set();
+    const uniqueFavorites = favorites.filter(game => {
+        const normalizedSlug = game.slug.replace('.html', '');
+        if (seen.has(normalizedSlug)) return false;
+        seen.add(normalizedSlug);
+        return true;
+    });
+
+    grid.innerHTML = uniqueFavorites.map(game => {
+        // Fix for 1v1.lol thumbnail and other possible slug variations
+        const cleanSlug = game.slug.replace('.html', '');
+        const imgName = (cleanSlug === 'index' || cleanSlug === '') ? '1v1-lol' : cleanSlug;
+        return `
+            <a href="${game.slug}" class="game-card">
+                <div class="game-thumb">
+                    <img src="assets/${imgName}.webp" alt="${game.title}" onerror="this.src='assets/favicon.webp'">
+                </div>
+                <h3>${game.title}</h3>
+            </a>
+        `;
+    }).join('');
+}
+
+function shareGame() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('<i class="fas fa-check-circle"></i> Link copied to clipboard!');
+    });
+}
+
+function showToast(message) {
+    // Check if toast already exists
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+    }
+    
+    toast.innerHTML = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+function toggleCinemaMode() {
+    const container = document.querySelector('.hero-main-game');
+    const btn = event.currentTarget;
+    const isCinema = container.classList.toggle('cinema');
+    
+    if (isCinema) {
+        document.body.classList.add('cinema-active');
+        btn.innerHTML = '<i class="fas fa-compress"></i> Exit Theater';
+    } else {
+        document.body.classList.remove('cinema-active');
+        btn.innerHTML = '<i class="fas fa-expand"></i> Theater Mode';
+    }
+}
