@@ -281,7 +281,7 @@ function renderFavorites() {
         grid.innerHTML = `
             <div style="text-align:center; grid-column: 1/-1; padding: 4rem 0;">
                 <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">You haven't added any favorite games yet.</p>
-                <a href="index" class="btn btn-primary">Discover Games</a>
+                <a href="/" class="btn btn-primary">Discover Games</a>
             </div>
         `;
         return;
