@@ -100,6 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
         previewImg.addEventListener('load', updateBg);
         if (previewImg.complete) updateBg();
     }
+
+    // Back to Top Button
+    const btt = document.createElement("div");
+    btt.id = "back-to-top";
+    btt.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(btt);
+    
+    window.addEventListener("scroll", throttle(() => {
+        if (window.pageYOffset > 300) {
+            btt.classList.add("show");
+        } else {
+            btt.classList.remove("show");
+        }
+    }, 100));
+    
+    btt.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
 
 function toggleFullScreen() {
