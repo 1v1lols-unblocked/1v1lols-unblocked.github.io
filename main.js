@@ -218,7 +218,7 @@ function filterGames() {
     if (filteredGames.length > 0) {
         dropdown.innerHTML = filteredGames.map(game => `
             <a href="${game.slug}" class="search-result-item">
-                <img src="assets/${game.slug === 'index' ? '1v1-lol' : game.slug}.webp" onerror="this.src='assets/hero.webp'">
+                <img src="/assets/${game.slug === 'index' ? '1v1-lol' : game.slug}.webp" onerror="this.src='/assets/hero.webp'">
                 <span>${game.title}</span>
             </a>
         `).join('');
@@ -238,7 +238,7 @@ function showSearchResults() {
     
     dropdown.innerHTML = GAMES_LIST.map(game => `
         <a href="${game.slug}" class="search-result-item">
-            <img src="assets/${game.slug === 'index' ? '1v1-lol' : game.slug}.webp" onerror="this.src='assets/hero.webp'">
+            <img src="/assets/${game.slug === 'index' ? '1v1-lol' : game.slug}.webp" onerror="this.src='/assets/hero.webp'">
             <span>${game.title}</span>
         </a>
     `).join('');
@@ -293,7 +293,7 @@ function renderFavorites() {
         return `
             <a href="${game.slug}" class="game-card">
                 <div class="game-thumb">
-                    <img src="assets/${imgName}.webp" alt="${game.title}" onerror="this.src='assets/hero.webp'">
+                    <img src="/assets/${imgName}.webp" alt="${game.title}" onerror="this.src='/assets/hero.webp'">
                 </div>
                 <h3>${game.title}</h3>
             </a>
@@ -337,3 +337,4 @@ function toggleCinemaMode() {
         btn.innerHTML = '<i class="fas fa-expand"></i> Theater Mode';
     }
 }
+
