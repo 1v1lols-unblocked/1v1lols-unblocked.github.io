@@ -348,15 +348,15 @@ nav.scrolled {
 
 .game-container {
     position: relative;
-    width: calc(100% - 40px); /* 20px gap on each side */
-    max-width: 1260px; /* Match width */
-    max-height: calc(100vh - 180px);
+    width: calc(100% - 80px); /* 40px gap on each side */
+    max-width: 1100px; /* Reduced from 1260px to make it smaller on desktop */
+    max-height: calc(100vh - 200px);
     aspect-ratio: 16 / 9;
     background: #000;
     border: 8px solid #fff;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.1);
-    margin: 0 auto;
+    margin: 10px auto 0;
     overflow: hidden;
     transition: var(--transition);
 }
@@ -547,8 +547,9 @@ nav.scrolled {
     border: 1px solid var(--glass-border);
     border-top: none;
     margin-top: 0;
-    width: calc(100% - 40px); /* Match game container width */
-    max-width: 1260px; /* Match game container max-width */
+    margin-bottom: 40px;
+    width: calc(100% - 80px); /* Match game container width */
+    max-width: 1100px; /* Match game container max-width */
     margin-left: auto;
     margin-right: auto;
     flex-wrap: nowrap;
